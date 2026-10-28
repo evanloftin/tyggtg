@@ -4,19 +4,39 @@
     <meta charset="UTF-8">
     <title>Embedded Link Example</title>
     <style>
-        iframe {
-            /* Sets the size exactly to 150px by 150px */
-            width: 800px;
+        /* This container keeps the iframe strictly bound to 150x150 */
+        .iframe-container {
+            width: 200px;
             height: 150px;
             border: 2px solid #ccc;
+            overflow: hidden; /* Hides any extra scrollbars */
+            position: relative;
+        }
+
+        iframe {
+            /* 1. We make the internal workspace larger so the site layout has room to load natively */
+            width: 800px;
+            height: 500px;
+            border: none;
+            
+            /* 2. We shrink the entire loaded page down to 30% scale */
+            transform: scale(0.3);
+            
+            /* 3. We lock the shrunken webpage up into the top-left corner of our container */
+            transform-origin: 0 0;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     </style>
 </head>
 <body>
 
     <h2>Loading Web Page Content Below:</h2>
-    <!-- Embeds the target URL with the correct https protocol -->
-    <iframe src="https://vibehubfun.site" title="Embedded Webpage"></iframe>
+    
+    <div class="iframe-container">
+        <iframe src="https://vibehubfun.site" title="Embedded Webpage"></iframe>
+    </div>
 
 </body>
 </html>
