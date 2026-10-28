@@ -12,10 +12,10 @@
             position: relative;
         }
 
-        /* This container keeps the iframe strictly bound to 150x150 */
+        /* This container keeps the iframe strictly bound to 100x75 */
         .iframe-container {
             width: 100px;
-            height: 75px;
+            height: 40px;
             border: 2px solid #333;
             overflow: hidden; 
             position: relative;
@@ -26,7 +26,10 @@
             width: 1600px;
             height: 1000px;
             border: none;
-            transform: scale(0.3);
+            
+            /* Reduced scale from 0.3 down to 0.0625 to fit the 100px container */
+            transform: scale(0.0625);
+            
             transform-origin: 0 0;
             position: absolute;
             top: 0;
@@ -59,7 +62,7 @@
             animation: glitch-flicker 0.15s infinite, glitch-bars 3s infinite linear;
         }
 
-        /* NEW: The Full-Page Cloudy Mist Overlay */
+        /* The Full-Page Cloudy Mist Overlay */
         .cloud-overlay {
             position: fixed;
             top: 0;
